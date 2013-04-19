@@ -1,7 +1,7 @@
 Single Linked List
 ==================
 
-The module __Data\_Type\_SL\_List__ contains the definition of derived type implementing a __generic__ Single-Linked List. The term __generic__ means that the data stored in each node (link) of the list is truly __generic__: at present, the stored data can be integer (of any kinds defined in IR\_Precision module), real (of any kinds defined in IR\_Precision module) and characters (of any length). The list links (nodes) can be either homogeneous or not.
+The module __Data\_Type\_SL\_List__ contains the definition of derived type, __Type\_SL\_List__, implementing a __generic__ Single-Linked List. The term __generic__ means that the data stored in each node (link) of the list is truly __generic__: at present, the stored data can be integer (of any kinds defined in IR\_Precision module), real (of any kinds defined in IR\_Precision module) and characters (of any length). The list links (nodes) can be either homogeneous or not.
 
 The module is written in pure Fortran (standard 2003).
 
