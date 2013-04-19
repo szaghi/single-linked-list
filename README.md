@@ -14,21 +14,29 @@ The only public entities of __Data\_Type\_SL\_List__  are __SL\_List\_Mold__ (pr
 
 Importing module namespace and defining the list:
 
-`
-USE Data_Type_SL_List
-type(Type_SL_List):: list
-`
+`USE Data_Type_SL_List
+type(Type_SL_List):: list`
 
 The list is now already instantiated and ready to be populated. At present, two attributes of the list are directly accessible:
 
 1. `list%l` and integer containing the actual length of the list (equals to 0 when the list is firstly defined)
 2. `list%homo` a logical indicating if the list has homogeneous (".true.") or not (".false.") nodes data.
 
+Note that the list links (nodes) are indexed starting from 1, i.e. [1:list%l].
+
 To populate the list simply use one of the three __put__ methods presently available:
 
 1. Head inserting: `list%puth(d='First data is a string')`;
-2. Tail inserting: `list%putt(d='First data is a string')`;
-3. Direct index node inserting: `list%put(n=1,d='First data is a string')`;
+2. tail inserting: `list%putt(d='First data is a string')`;
+3. direct-index-node inserting: `list%put(n=1,d='First data is a string')`.
+
+The three above insertions has identical result because it is the first insertion. It is important to note that the third method using direct-index-node reference can accept out-of-bounds index without rising an error. As an example the above third insertion could be replaced, with the same result, by any of the following insertion:
+
+- `list&put(n=0,d=First data is a string)`;
+- `list&put(n=-1,d=First data is a string)`;
+- `list&put(n=100,d=First data is a string)`;
+
+The direct-index-node insertion method always check if the used node-index is out-of-bounds [1:list%l] and, in case, the node 1 (if `n<1`) or list%l (if `n>list%l`) are used.
 
 ## Todo
 
