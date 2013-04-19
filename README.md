@@ -12,7 +12,7 @@ The only public entities of __Data\_Type\_SL\_List__  are __SL\_List\_Mold__ (pr
 
 ### Usage
 
-Importing module namespace and defining the list:
+First of all, module namespace must be imported and the list defined:
 
 `USE Data_Type_SL_List
 type(Type_SL_List):: list`
@@ -36,7 +36,7 @@ The three above insertions has identical result because it is the first insertio
 - ``list%put(n=-1,d=First data is a string)``;
 - ``list%put(n=100,d=First data is a string)``;
 
-The direct-index-node insertion method always check if the used node-index is out-of-bounds [1:list%l] and, in case, the node 1 (if `n<1`) or list%l (if `n>list%l`) are used.
+The direct-index-node insertion method always checks if the used node-index is out-of-bounds [1:list%l] and, in case, the node 1 (if `n<1`) or list%l (if `n>list%l`) are used.
 
 ## Todo
 
