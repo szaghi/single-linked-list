@@ -14,7 +14,8 @@ The only public entities of __Data\_Type\_SL\_List__  are __SL\_List\_Mold__ (pr
 
 Importing module namespace and defining the list:
 
-`USE Data_Type_SL_List
+`
+USE Data_Type_SL_List
 type(Type_SL_List):: list
 `
 
