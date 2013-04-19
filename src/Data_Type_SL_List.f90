@@ -167,7 +167,7 @@ endtype Type_SL_Link
 !> is \b generic: at present, the stored data can be integer (of any kinds defined in IR_Precision module), real (of any kinds
 !> defined in IR_Precision module) and characters (of any length). In order to insert and retrieve data from the list nodes (and in
 !> general for list manipulation) the type bound methods must be used, because the data is not directly accessible. This is due to
-!> the internal representation of the data. In order to allow generic data, the intrinsic \b tansfer function is used to encode all
+!> the internal representation of the data. In order to allow generic data, the intrinsic \b transfer function is used to encode all
 !> user data into the internal integer(I1P) array representation. As a consequence, if the node is directed accessed the user can
 !> obtain unpredictable results due to the encoded internal representation.
 !> The provide methods for list handling are the following:
