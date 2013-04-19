@@ -26,15 +26,15 @@ Note that the list links (nodes) are indexed starting from 1, i.e. [1:list%l].
 
 To populate the list simply use one of the three __put__ methods presently available:
 
-1. Head inserting: `list%puth(d='First data is a string')`;
-2. tail inserting: `list%putt(d='First data is a string')`;
-3. direct-index-node inserting: `list%put(n=1,d='First data is a string')`.
+1. Head inserting: ``list%puth(d='First data is a string')``;
+2. tail inserting: ``list%putt(d='First data is a string')``;
+3. direct-index-node inserting: ``list%put(n=1,d='First data is a string')``.
 
 The three above insertions has identical result because it is the first insertion. It is important to note that the third method using direct-index-node reference can accept out-of-bounds index without rising an error. As an example the above third insertion could be replaced, with the same result, by any of the following insertion:
 
-- `list%put(n=0,d=First data is a string)`;
-- `list%put(n=-1,d=First data is a string)`;
-- `list%put(n=100,d=First data is a string)`;
+- ``list%put(n=0,d=First data is a string)``;
+- ``list%put(n=-1,d=First data is a string)``;
+- ``list%put(n=100,d=First data is a string)``;
 
 The direct-index-node insertion method always check if the used node-index is out-of-bounds [1:list%l] and, in case, the node 1 (if `n<1`) or list%l (if `n>list%l`) are used.
 
