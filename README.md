@@ -30,7 +30,7 @@ To populate the list simply use one of the three __put__ methods presently avail
 2. tail inserting: ``list%putt(d='First data is a string')``;
 3. direct-index-node inserting: ``list%put(n=1,d='First data is a string')``.
 
-The three above insertions has identical result because it is the first insertion. It is important to note that the third method using direct-index-node reference can accept out-of-bounds index without rising an error. As an example the above third insertion could be replaced, with the same result, by any of the following insertion:
+The three above insertions has identical result because it is the first insertion. It is important to note that the third method using direct-index-node reference can accept out-of-bounds index without rising an error. As an example the above third insertion could be replaced, with the same result, by any of the following insertions:
 
 - ``list%put(n=0,d=First data is a string)``;
 - ``list%put(n=-1,d=First data is a string)``;
@@ -38,12 +38,30 @@ The three above insertions has identical result because it is the first insertio
 
 The direct-index-node insertion method always checks if the used node-index is out-of-bounds [1:list%l] and, in case, the node 1 (if `n<1`) or list%l (if `n>list%l`) are used.
 
+Assuming that the list have been created as following:
+
+- ``list%putt(d=First data is a string)``;
+- `list%putt(d=2_I4P)` ! the second is a integer(I4P);
+- `list%putt(d=3._R4P)` ! the third is a single precision real, real(R4P);
+- `list%putt(d=4_I8P)` ! the fourth is a long integer, integer(I8P);
+
+The list is not homogeneous, i.e. `list%homo=.false.`, and has four nodes, i.e. `list%l=4`. In order to retrieve nodes data the `get#` methods must be used:
+
+1. Head retrieving: `list%geth(d=d_ch)`;
+2. tail retrieving: `list%gett(d=d_I8P)`;
+3. direct-index-node retrieving: `list%get(n=3,d=d_R4P)`.
+
+where the data variables have been defined as:
+
+`character(100):: d_ch
+integer(I8P)::    d_I8P
+real(R4P)::       d_R4P`
+
 ## Todo
 
 - Allow array data storage;
 - complete documentation;
 - write test\_driver program.
-
 
 ## Copyrights
 
