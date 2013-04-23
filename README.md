@@ -10,9 +10,19 @@ __Type\_SL\_List__ is a tentative to implement Python's list type in pure Fortra
 
 The only public entities of __Data\_Type\_SL\_List__  are __SL\_List\_Mold__ (prototype for encoding/decoding data) and __Type\_SL\_List__ itself. In order to insert and retrieve data from the list nodes (and in general for list manipulation) the type bound methods of __Type\_SL\_List__ must be used, because the stored data are not directly accessible. This is due to the internal representation of the data. In order to allow generic data, the intrinsic __transfer__ function is used to encode all user data into the internal integer(I1P) array (pointer) representation. As a consequence, if the node is directed accessed the user can obtain unpredictable results due to the encoded (by means of __SL\_List\_Mold__) internal representation.
 
+### Compiling
+
+ __Type\_SL\_List__ must be compiled against __IR\_Precision__ module.
+
+ The present project contains a program, __Test\_Diver.f90__ for testing the list type. It must be compiled against __Data\_Type\_OS.f90__, __Data\_Type\_SL\_List.f90__ and __Lib\_IO\_Misc.f90__ that are present into __src__ directory.
+
+ In order to compile the program a modern Fortran compiler is necessary. Supported compiler is Intel Fortran Compiler (12.x or higher). For compile __Test\_Diver__ program use the provided makefile:
+
+> make
+
 ### Usage
 
-First of all, module namespace must be imported and the list defined:
+First of all, the module namespace must be imported and the list defined:
 
 `USE Data_Type_SL_List
 type(Type_SL_List):: list`
@@ -57,11 +67,33 @@ where the data variables have been defined as:
 integer(I8P)::    d_I8P
 real(R4P)::       d_R4P`
 
+For more details see the examples present in src/Test\_Driver.f90.
+
+To run the program type:
+
+> ./Test\_Driver
+that will print:
+
+     Test_Driver: a "driver" program for testing Type_SL_List functions
+     Usage:
+       Test_Driver [-switch]
+         switch = integer   => testing integer list functions
+         switch = real      => testing real list functions
+         switch = character => testing character list functions
+         switch = logical   => testing logical list functions
+         switch = hetero    => testing hetero list functions
+         switch = all       => testing all functions
+     Examples:
+       Test_Driver -integer
+       Test_Driver -logical
+     If switch is not passed this help message is printed to stdout
+
+To see the list in action use one of the above switches and following the command line wizard.
+
 ## Todo
 
 - Allow array data storage;
 - complete documentation;
-- write test\_driver program.
 
 ## Copyrights
 
