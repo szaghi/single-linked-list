@@ -18,14 +18,14 @@ The only public entities of __Data\_Type\_SL\_List__  are __SL\_List\_Mold__ (pr
 
  In order to compile the program a modern Fortran compiler is necessary. Supported compiler is Intel Fortran Compiler (12.x or higher). For compile __Test\_Diver__ program use the provided makefile:
 
-> make
+    make
 
 ### Usage
 
 First of all, the module namespace must be imported and the list defined:
 
-> USE Data_Type\_SL\_List
-> type(Type\_SL\_List):: list
+    USE Data_Type_SL_List
+    type(Type_SL_List):: list
 
 The list is now already instantiated and ready to be populated. At present, two attributes of the list are directly accessible:
 
@@ -63,15 +63,15 @@ The list is not homogeneous, i.e. `list%homo=.false.`, and has four nodes, i.e. 
 
 where the data variables have been defined as:
 
-> character(100):: d\_ch
-> integer(I8P)::   d\_I8P
-> real(R4P)::      d\_R4P
+    character(100):: d_ch
+    integer(I8P)::   d_I8P
+    real(R4P)::      d_R4P
 
 For more details see the examples present in src/Test\_Driver.f90.
 
 To run the program type:
 
-> ./Test\_Driver
+    ./Test_Driver
 
 that will print:
 
